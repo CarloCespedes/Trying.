@@ -1,4 +1,8 @@
 package triangulo;
+import Exceptions.ErrorNoPositiveNumber;
+import Exceptions.ErrorParameterMissed;
+import Exceptions.ErrorToMuchParameters;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -7,22 +11,28 @@ import java.util.Scanner;
  */
 public class TrianguloMain {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ErrorParameterMissed, ErrorToMuchParameters, ErrorNoPositiveNumber {
+        int Lad1, Lad2, Lad3;
+        try{
         Scanner teclado = new Scanner (System.in);
         System.out.println("Ingrese el primer lado del triangulo");
-        int Lad1 = teclado.nextInt();
+        Lad1 = teclado.nextInt();
         System.out.println("Ingrese el segundo lado del triangulo");
-        int Lad2 = teclado.nextInt();
+        Lad2 = teclado.nextInt();
         System.out.println("Ingrese el tercer lado del triangulo");
-        int Lad3 = teclado.nextInt();
-        
-        if ((Lad1 == Lad2) && (Lad2 == Lad3)){
-        System.out.println("Es un triangulo Equilatero");
+        Lad3 = teclado.nextInt();
+
+        TrianguloClass  tri;
+        tri = new TrianguloClass(Lad1,Lad2,Lad3);
+
+        String lados = tri.lados();
+
+        System.out.println(lados);
         }
-        if (((Lad1 == Lad2)&& Lad3 != Lad1) || ((Lad1 == Lad3) && Lad2 != Lad1) || ((Lad2 == Lad3) && Lad1 != Lad2) )
-            System.out.println("El triangulo es Isoceles");
-        if ((Lad1 != Lad2)&& (Lad3 != Lad1) && (Lad2 != Lad3)){
-            System.out.println("El triangulo es Escaleno");
+        catch(InputMismatchException | ErrorParameterMissed | ErrorToMuchParameters | ErrorNoPositiveNumber e){
+            System.out.println("Houston! Tenemos problemas");
+            System.out.println("Misión abortada.");
+            System.out.println(e);
         }
     }
 }

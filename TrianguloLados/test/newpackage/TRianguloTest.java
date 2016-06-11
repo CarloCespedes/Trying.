@@ -17,6 +17,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import triangulo.TrianguloClass;
+import triangulo.TrianguloMain;
 /**
  *
  * @author Jafet Benítez
@@ -85,10 +86,14 @@ public class TRianguloTest {
        }
     }
     
-    
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+//    @Test
+//    public void mainMethodTest() throws ErrorParameterMissed, ErrorToMuchParameters, ErrorNoPositiveNumber{
+//        TrianguloMain tm = new TrianguloMain();
+//        String[] a = {"a"};
+//        boolean res = true;
+//        
+//        TrianguloMain.main(a);
+//    }
+//    
+
 }
